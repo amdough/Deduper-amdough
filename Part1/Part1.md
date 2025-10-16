@@ -75,11 +75,11 @@ def parse_line(line):
 ```
 def adjust_pos(pos, cig, strand):
     if strand == "+":
-        if cig.startswith(str(int)):
+        if cig.startswith((int)"S"):
             adj_pos = *subtract (int) number of bases from pos*
     else:
-        if cig.endswith("S"):
-            adj_pos = *add bases for rev strand*
+        if cig.endswith("S"(int)):
+            adj_pos = *add int bases for rev strand*
     return adj_pos
 ```
 **3**
@@ -108,11 +108,5 @@ def deduper(<input sam>, <output sam>):
                 output.write(og_line)
 
 ```
-
-
-
-Write examples:
-Include a properly formated sorted input sam file
-Include a properly formated expected output sam file
-
+Test files in: [unit tests](../unit_tests)
 
