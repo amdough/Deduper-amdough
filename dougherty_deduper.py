@@ -112,11 +112,13 @@ def main():
     print(f"Duplicates removed: {total_reads - invalid_umi_count - unique_reads:,}")
     print(f"Invalid UMIs skipped: {invalid_umi_count:,}")
     print("\nReads per chromosome:")
-    for chrom, count in num_chroms.items():
+    for chrom, count in sorted(num_chroms.items(),
+            key=lambda x: (x[0].isdigit(), int(x[0]) if x[0].isdigit() else float('inf'))):
         print(f"{chrom}\t{count}")
     print("=================================\n")
    
     
 if __name__ == "__main__":
     main()
+
 
