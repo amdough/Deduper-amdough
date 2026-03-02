@@ -1,0 +1,6 @@
+metric	value
+headers	65
+total_reads_processed	18186410
+unique_reads_written	13719048
+duplicates_removed	4467362
+invalid_umis_skipped	0

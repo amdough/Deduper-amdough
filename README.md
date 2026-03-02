@@ -23,7 +23,7 @@ This will run `samtools sort` internally:
 python dougherty_deduper.py \
   -f input.sam \
   -o deduped.sam \
-  -um <umi.file> \
+  -u <umi.file> \
   -s sorted.sam
   ```
 
@@ -38,7 +38,8 @@ python ./dougherty_deduper.py \
     ```
 # To generate the stats file, add the -- stats flag and specify the output path for the stats file:
   --stats /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output/deduper_stats.tsv
-
+  
+[Example --stats output](deduper_stats.tsv)
 
 
 
