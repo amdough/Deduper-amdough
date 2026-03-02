@@ -30,7 +30,9 @@ python dougherty_deduper.py \
   ```
 
 ### If your SAM is sorted: 
+
 This will skip samtools sorting step:
+
 ```bash
 python ./dougherty_deduper.py \
     -f sorted.sam \
@@ -38,13 +40,14 @@ python ./dougherty_deduper.py \
     -u <umi.file> \
     --no-sort
     ```
+
 # To generate the stats file, add the -- stats flag and specify the output path for the stats file:
-  --stats /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output/deduper_stats.tsv
+``` --stats /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output/deduper_stats.tsv ```
 
 [Example --stats output](deduper_stats.tsv)
 
 ### Test files:
-
+[unit_tests](/Users/amandadougherty/bioinfo/Bi624/deduper/Deduper-amdough/unit_tests)
 
 
 
