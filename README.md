@@ -39,7 +39,7 @@ python ./dougherty_deduper.py \
     -o deduped.sam \
     -u <umi.file> \
     --no-sort
-    ```
+```
 
 # To generate the stats file, add the -- stats flag and specify the output path for the stats file:
 ``` --stats /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output/deduper_stats.tsv ```
