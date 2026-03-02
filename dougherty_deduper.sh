@@ -17,22 +17,33 @@
 module load samtools/1.19
 # module load python/3.8  # if needed, depending on your environment
 
-# Define variables
+# Define variables; adjust paths as necessary
 input_sam=/projects/bgmp/shared/deduper/C1_SE_uniqAlign.sam
 sorted_sam=/gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/C1_SE_uniqAlign_sorted.sam
 deduped_out=/gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/C1_SE_deduped.sam
 umis=/gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/STL96.txt
 # tmp_dir=/gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/tmp
 
+
 # Make sure all output directories exist
 mkdir -p /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output
 # mkdir -p $tmp_dir
 
-# Run Python script with timing
+# If file is unsorted: sort it first
 /usr/bin/time python ./dougherty_deduper.py \
     -f $input_sam \
     -s $sorted_sam \
     -o $deduped_out \
     -u $umis \
+
+# If input file is already sorted, skip sorting step:
+/usr/bin/time python ./dougherty_deduper.py \
+    -f $sorted_sam \
+    -o $deduped_out \
+    -u $umis \
+    --no-sort
+
+# To generate the stats file, add the -- stats flag and specify the output path for the stats file:
+  --stats /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output/deduper_stats.tsv
 
 # python3 ./dougherty_deduper.py -f /Users/amandadougherty/bioinfo/Bi624/deduper/Deduper-amdough/test1.sam -o deduped.sam -u /Users/amandadougherty/bioinfo/Bi624/deduper/Deduper-amdough/STL96.txt
