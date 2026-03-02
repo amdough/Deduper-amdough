@@ -59,8 +59,9 @@ def ensure_samtools_available() -> None:
         sys.stderr.write("ERROR: samtools is not available in PATH. Load module or install samtools.\n")
         sys.exit(1)
         
-# An optional function to call samtools-sort within the script 
+# An OPTIONAL function to call samtools-sort within the script 
 def sort_sam(input_sam:str, output_sam:str)-> str:
+    """Sort the input SAM file by chromosome using samtools and write to output_sam. Returns path to sorted SAM."""
     ensure_samtools_available()
     cmd = ["samtools", "sort", "-O", "SAM", "-o", output_sam, input_sam]
     try: 
@@ -206,6 +207,7 @@ def main():
         }
         write_stats_tsv(args.stats, stats)
         sys.stderr.write(f"[deduper] Stats TSV written to: {args.stats}\n")
+
     # Clean up temp sorted file if we created one
     if temp_sorted_path is not None:
         try:
