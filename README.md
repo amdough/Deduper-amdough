@@ -11,6 +11,8 @@ This script removes PCR duplicates from **coordinate-sorted** SAM alignments usi
   - `parse_line(line)`
   - `adjust_pos(pos, cigar, flag)`
   - (optionally) `stranded(flag)` if used inside `parse_line`
+[bioinfo.py](bioinfo.py)
+- a file with a list of known UMIs [example UMI file](STL96.txt)
 
 ## Usage
 [Deduplication python script](dougherty_deduper.py)         
@@ -38,8 +40,10 @@ python ./dougherty_deduper.py \
     ```
 # To generate the stats file, add the -- stats flag and specify the output path for the stats file:
   --stats /gpfs/projects/bgmp/amdo/bioinfo/Bi624/Deduper/output/deduper_stats.tsv
-  
+
 [Example --stats output](deduper_stats.tsv)
+
+### Test files:
 
 
 
